@@ -47,6 +47,11 @@ class Critter(object):
             m = "ужасно"
         return m
          
+    def hunger_number(self):
+        print("Зверюшка голодна на", self.hunger, "единиц")
+
+    def mood_number(self):
+        print("Зверюшка опечалина на", self.boredom, "единиц")
 
     def talk(self):
         print("Привет! Я - зверюшка. Меня зовут -", self.name, "я чувствую себя", self.mood)
@@ -87,16 +92,21 @@ def main():
 
         if choice == "0":
             print("До свидания.")
+            
         elif choice == "1":
             crit.talk()
 
         elif choice == "2":
-            print("Сколько кг корма дать зверюшке?")
+            print("Сколько кг корма дать зверюшке?: ")
             crit.eat()
 
         elif choice == "3":
-            print("Сколько вы хтите игратся с звеюшкой?")
+            print("Сколько вы хтите игратся с звеюшкой?: ")
             crit.play()
+
+        elif choice == "1100":
+            crit.hunger_number()
+            crit.mood_number()
 
         else:
             print("Извините, в меню нет пункта", choice)
