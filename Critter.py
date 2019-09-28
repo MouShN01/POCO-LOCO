@@ -18,7 +18,7 @@ class Critter(object):
         ans = "Имя - " + self.name + "\n"
         return ans
 
-    def __pas_time(self):
+    def __pass_time(self):
         self.hunger += 1
         self.boredom += 1
 
@@ -50,34 +50,56 @@ class Critter(object):
 
     def talk(self):
         print("Привет! Я - зверюшка. Меня зовут -", self.name, "я чувствую себя", self.mood)
-        self.__pas_time()
+        self.__pass_time()
 
-    def eat(self, food = 4):
+    def eat(self, food = None):
+        self.hunger -= int(input())
         print("<3")
-        self.hunger -= food
         if self.hunger < 0:
             self.hunger = 0
-        self.__pas_time()
+        self.__pass_time()
 
-    def paly(self, fun = 4):
+    def play(self, fun = None):
+        self.boredom -= int(input())
         print(":)")
-        self.boredom -= fun
         if self.boredom < 0:
             self.boredom = 0
-        self.__pas_time()
+        self.__pass_time()
 
 def main():
-    print("Создание зверюшек.")
-    crit1 = Critter("Зверюшка1")
-    crit2 = Critter("Зверюшка2")
+    crit_name = input("Как вы назовете свою зверюшку?: ")
+    crit = Critter(crit_name)
 
-    Critter.status()
+    choice = None
+    while choice != "0":
+        print \
+        ("""
+        Моя зверюшка
 
-    crit1.talk()
-    crit1.eat()
-    crit1.play()
+        0 - Выйти
+        1 - Узнать о самочувствии зверюшки
+        2 - Покормить зверюшку
+        3 - Поиграть со зверюшкой
+        """)
 
-    print(crit1.mood)
+        choice = input("Ваш выбор: ")
+        print()
+
+        if choice == "0":
+            print("До свидания.")
+        elif choice == "1":
+            crit.talk()
+
+        elif choice == "2":
+            print("Сколько кг корма дать зверюшке?")
+            crit.eat()
+
+        elif choice == "3":
+            print("Сколько вы хтите игратся с звеюшкой?")
+            crit.play()
+
+        else:
+            print("Извините, в меню нет пункта", choice)
 
 main()
 
