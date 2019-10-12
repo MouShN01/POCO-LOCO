@@ -1,6 +1,6 @@
 class Card:
     """Одна игральная карта"""
-    RANKS = ["T", "2", "3", "4", "5", "6", "7", "8", "9", "10", "В", "Д", "К",]
+    RANKS = ["T", "2", "3", "4", "5", "6", "7", "8", "9", "10", "В", "Д", "К"]
 
     SUITS = [u'\u2660', u'\u2663', u'\u2665', u'\u2666']
     def __init__ (self, rank, suit):
@@ -43,7 +43,7 @@ class Deck(Hand):
         random.shuffle(self.cards)
         
     def deal(self, hands, per_hand = 1):
-        for round in range(per_hand):
+        for raund in range(per_hand):
             for hand in hands:
                 if self.cards:
                     top_card = self.cards[0]
@@ -70,8 +70,18 @@ class Positionable_Card(Card):
     def flip(self):
         self.is_face_up = not self.is_face_up
 
+
 def main():
+    i = 1
+    deck1 = Deck()
+    deck1.populate()
     hands = []
-    h = int(input("Сколько играков будет учавствовать в игре?:"))
-    for hand in 
+    h = int(input("Сколько играков будет учавствовать в игре?: "))
+    deck1.shuffle()
+    print("Мешаем корлоду...")
+    print("Колода помешана.")
+    for i in range(h):
+        hands.append("hand" + str(i))
+        hands[i] = Hand()
+    deck1.deal(hands, per_hand = 1)
 main()
