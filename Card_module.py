@@ -29,6 +29,10 @@ class Positionable_Card(Card):
     def flip(self):
         self.is_face_up = not self.is_face_up
 
+    if __name__ == "__main__":
+        print("Вы запустили модуль cards, а не импортировали его (import cards).")
+        input("\n\nНажмите Enter, что бы выйти.")
+
 class Hand:
     """Рука: набор карт на руках у одного игрока."""
     def __init__(self):
@@ -70,17 +74,6 @@ class Deck(Hand):
                 else:
                     print("Не могу больше сдавать: карты закончились!")
 
-def main():
-    i = 1
-    deck1 = Deck()
-    deck1.populate()
-    hands = []
-    h = int(input("Сколько играков будет учавствовать в игре?: "))
-    deck1.shuffle()
-    print("Мешаем корлоду...")
-    print("Колода помешана.")
-    for i in range(h):
-        hands.append("hand" + str(i))
-        hands[i] = Hand()
-    deck1.deal(hands, per_hand = 1)
-main()
+    if __name__ == "__main__":
+        print("Вы запустили модуль hands, а не импортировали его (import hands).")
+        input("\n\nНажмите Enter, что бы выйти.")
